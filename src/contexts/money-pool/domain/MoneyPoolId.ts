@@ -1,4 +1,4 @@
-import {IdValueObject} from '../shared/domain/value-object/IdValueObject';
+import {IdValueObject} from '../../shared/domain/value-object/IdValueObject';
 
 export class MoneyPoolId extends IdValueObject {
     public static buildRawId(): string {

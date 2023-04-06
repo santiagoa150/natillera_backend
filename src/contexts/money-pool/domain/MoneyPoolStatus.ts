@@ -1,4 +1,4 @@
-import {DiscreteValueObject} from '../shared/domain/value-object/DiscreteValueObject';
+import {DiscreteValueObject} from '../../shared/domain/value-object/DiscreteValueObject';
 import {MoneyPoolStatusConstants} from './constants/MoneyPoolStatusConstants';
 import {InvalidMoneyPoolStatusException} from './exceptions/InvalidMoneyPoolStatusException';
 

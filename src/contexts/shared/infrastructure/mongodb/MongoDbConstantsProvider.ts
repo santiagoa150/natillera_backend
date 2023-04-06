@@ -1,0 +1,4 @@
+export enum MongoDbConstantsProvider {
+    DATABASE_CONNECTION = 'DATABASE_CONNECTION',
+    MONEY_POOL_DOCUMENT = 'MONEY_POOL_DOCUMENT',
+}
