@@ -1,7 +1,7 @@
 import {ApiProperty} from '@nestjs/swagger';
 import {IsDateString, IsNotEmpty, IsNumber, IsString, Min} from 'class-validator';
 import {ErrorMessagesConstants} from '../../../../contexts/shared/domain/constants/ErrorMessagesConstants';
-import {DefaultValidationOptions} from '../../../shared/config/DefaultValidationOptions';
+import {SharedValidationsConstants} from '../../../shared/constants/SharedValidationsConstants';
 
 export class CreateMoneyPoolPostControllerRequest {
     @ApiProperty({required: true})
@@ -10,7 +10,7 @@ export class CreateMoneyPoolPostControllerRequest {
         name: string;
 
     @ApiProperty({required: true})
-    @IsNumber(DefaultValidationOptions.INTEGER, {message: ErrorMessagesConstants.MONEY_POOL_YEAR_MUST_BE_INTEGER})
+    @IsNumber(SharedValidationsConstants.INTEGER, {message: ErrorMessagesConstants.MONEY_POOL_YEAR_MUST_BE_INTEGER})
     @IsNotEmpty({message: ErrorMessagesConstants.MONEY_POOL_YEAR_REQUIRED})
         year: number;
 
@@ -26,7 +26,7 @@ export class CreateMoneyPoolPostControllerRequest {
 
     @ApiProperty({required: true})
     @Min(0, {message: ErrorMessagesConstants.MONEY_POOL_HANDLING_FEE_MUST_BE_GREATER_THAN_ZERO})
-    @IsNumber(DefaultValidationOptions.INTEGER, {message: ErrorMessagesConstants.MONEY_POOL_HANDLING_FEE_MUST_BE_INTEGER})
+    @IsNumber(SharedValidationsConstants.INTEGER, {message: ErrorMessagesConstants.MONEY_POOL_HANDLING_FEE_MUST_BE_INTEGER})
     @IsNotEmpty({message: ErrorMessagesConstants.MONEY_POOL_HANDLING_FEE_REQUIRED})
         handlingFee: number;
 }

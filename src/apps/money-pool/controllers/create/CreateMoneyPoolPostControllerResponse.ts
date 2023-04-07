@@ -1,5 +1,5 @@
-import {SharedResponse} from '../../../shared/config/SharedResponse';
+import {SharedResponsesConstants} from '../../../shared/constants/SharedResponsesConstants';
 
-export class CreateMoneyPoolPostControllerResponse extends SharedResponse {
+export class CreateMoneyPoolPostControllerResponse extends SharedResponsesConstants {
 
 }

@@ -2,7 +2,7 @@ import {Controller, Logger} from '@nestjs/common';
 import {CommandBus, QueryBus} from '@nestjs/cqrs';
 
 @Controller()
-export abstract class ApiController {
+export abstract class SharedController {
     protected abstract readonly logger: Logger;
 
     constructor(

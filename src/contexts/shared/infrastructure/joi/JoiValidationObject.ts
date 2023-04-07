@@ -2,6 +2,7 @@ import * as Joi from 'joi';
 
 export const JoiValidationObject = Joi.object({
     APP_GLOBAL_PREFIX: Joi.string().required(),
+    APP_KEY: Joi.string().uuid().required(),
     APP_PORT: Joi.number().required(),
     APP_VERSION: Joi.string().required(),
     CONTACT_NAME: Joi.string().optional(),

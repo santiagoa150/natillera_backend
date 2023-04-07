@@ -1,5 +1,5 @@
 import {ApiProperty} from '@nestjs/swagger';
 
-export class SharedResponse {
+export class SharedResponsesConstants {
     @ApiProperty({type: Boolean}) public success = true;
 }
