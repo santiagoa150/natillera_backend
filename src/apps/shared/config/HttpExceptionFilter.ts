@@ -1,10 +1,13 @@
-import {ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus,} from '@nestjs/common';
+import {ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus, Logger,} from '@nestjs/common';
 import {Request, Response} from 'express';
 import {ErrorStatusCodesConstants} from '../../../contexts/shared/domain/constants/ErrorStatusCodesConstants';
 import {ExceptionResponse} from '../../../contexts/shared/domain/ExceptionResponse';
 
 @Catch()
 export class HttpExceptionFilter implements ExceptionFilter {
+
+    private readonly logger: Logger = new Logger(HttpExceptionFilter.name);
+
     catch(exception: HttpException, host: ArgumentsHost): void {
         const data = {
             message: this.resolveMessage(exception),
@@ -17,6 +20,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
             data.code = excResponse.statusCode;
             data.status = exception.getStatus();
         }
+        this.logger.error(`[${this.catch.name}] ERROR :: ${data.message}`);
         this.setResponse(host, data.status, data.code, data.message);
     }
 

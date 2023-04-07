@@ -2,6 +2,7 @@ import {NestFactory} from '@nestjs/core';
 import {AppModule} from './app.module';
 import {Logger, ValidationPipe} from '@nestjs/common';
 import {DocumentBuilder, SwaggerModule} from '@nestjs/swagger';
+import {HttpExceptionFilter} from './apps/shared/config/HttpExceptionFilter';
 
 async function bootstrap() {
     const logger: Logger = new Logger('Server');
@@ -11,6 +12,7 @@ async function bootstrap() {
     app.enableCors();
     app.useGlobalPipes(new ValidationPipe());
     app.setGlobalPrefix(process.env.APP_GLOBAL_PREFIX);
+    app.useGlobalFilters(new HttpExceptionFilter());
 
     const config = new DocumentBuilder()
         .setTitle(process.env.SWAGGER_TITLE)

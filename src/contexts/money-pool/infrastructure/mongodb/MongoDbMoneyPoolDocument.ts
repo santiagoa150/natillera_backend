@@ -3,29 +3,31 @@ import {Document, Schema} from 'mongoose';
 
 export type MongoDbMoneyPoolDocument = MoneyPoolDto & Document;
 export const MoneyPoolSchema: Schema<MoneyPoolDto> = new Schema<MoneyPoolDto>({
-    finalMonth: {
-        type: Number,
+    finishDate: {
+        type: Date,
+        index: true,
     },
     handlingFee: {
         type: Number,
     },
-    initialMonth: {
-        type: Number,
+    startDate: {
+        type: Date,
+        index: true,
     },
     moneyPoolId: {
         type: String,
         unique: true,
+        index: true,
     },
     name: {
         type: String,
     },
     status: {
         type: String,
-    },
-    totalMonths: {
-        type: Number,
+        index: true,
     },
     year: {
         type: Number,
+        index: true,
     }
 }, {timestamps: true});

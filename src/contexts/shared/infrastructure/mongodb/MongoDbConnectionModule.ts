@@ -1,17 +1,17 @@
 import {Module} from '@nestjs/common';
 import {MongoDbConnectionProvider} from './MongoDbConnectionProvider';
 import {
-    MongoDbMoneyPoolDocumentProvider
-} from '../../../money-pool/infrastructure/mongodb/MongoDbMoneyPoolDocumentProvider';
+    MongoDbMoneyPoolProviders
+} from '../../../money-pool/infrastructure/mongodb/MongoDbMoneyPoolProviders';
 
 @Module({
     providers: [
         MongoDbConnectionProvider,
-        MongoDbMoneyPoolDocumentProvider,
+        ...MongoDbMoneyPoolProviders,
     ],
     exports: [
         MongoDbConnectionProvider,
-        MongoDbMoneyPoolDocumentProvider,
+        ...MongoDbMoneyPoolProviders,
     ],
 })
 export class MongoDbConnectionModule {

@@ -6,7 +6,8 @@ import {JoiValidationObject} from './contexts/shared/infrastructure/joi/JoiValid
 @Module({
     imports: [
         ConfigModule.forRoot({
-            isGlobal: true, validationSchema: JoiValidationObject
+            isGlobal: true,
+            validationSchema: JoiValidationObject
         }),
         MoneyPoolModule,
     ],

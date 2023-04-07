@@ -5,8 +5,7 @@ export class MoneyPoolDto {
     @ApiProperty() status: string;
     @ApiProperty() name: string;
     @ApiProperty() year: number;
-    @ApiProperty() initialMonth: number;
-    @ApiProperty() finalMonth: number;
-    @ApiProperty() totalMonths: number;
+    @ApiProperty() startDate: Date;
+    @ApiProperty() finishDate: Date;
     @ApiProperty() handlingFee: number;
 }
