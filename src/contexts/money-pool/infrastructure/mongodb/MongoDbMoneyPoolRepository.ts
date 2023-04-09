@@ -23,6 +23,14 @@ export class MongoDbMoneyPoolRepository implements IMoneyPoolRepository {
         return moneyPoolCreated;
     }
 
+    async delete(moneyPoolId: MoneyPoolId): Promise<MoneyPool> {
+        this.logger.log(`[${this.delete.name}] INIT :: moneyPoolId: ${moneyPoolId.toString()}`);
+        const moneyPoolDeleted: MoneyPoolDto = await this.moneyPoolModel.findOneAndDelete({moneyPoolId: moneyPoolId.toString()});
+        const moneyPoolMapped: MoneyPool = moneyPoolDeleted ? MoneyPool.fromPrimitives(moneyPoolDeleted) : null;
+        this.logger.log(`[${this.delete.name}] FINISH ::`);
+        return moneyPoolMapped;
+    }
+
     async searchById(moneyPoolId: MoneyPoolId): Promise<MoneyPool> {
         this.logger.log(`[${this.searchById.name}] INIT :: moneyPoolId: ${moneyPoolId.toString()}`);
         const moneyPoolFound: MoneyPoolDto = await this.moneyPoolModel.findOne({moneyPoolId: moneyPoolId.toString()});

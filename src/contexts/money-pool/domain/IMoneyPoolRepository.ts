@@ -5,5 +5,7 @@ import {MoneyPoolId} from './MoneyPoolId';
 export interface IMoneyPoolRepository {
     create(moneyPool: MoneyPoolDto): Promise<MoneyPool>;
 
+    delete(moneyPoolId: MoneyPoolId): Promise<MoneyPool>;
+
     searchById(moneyPoolId: MoneyPoolId): Promise<MoneyPool>;
 }

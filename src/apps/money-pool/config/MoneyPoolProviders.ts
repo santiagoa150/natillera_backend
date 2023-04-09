@@ -5,6 +5,7 @@ import {
     MongoDbMoneyPoolRepository
 } from '../../../contexts/money-pool/infrastructure/mongodb/MongoDbMoneyPoolRepository';
 import {SearchMoneyPoolByIdApp} from '../../../contexts/money-pool/application/search/by-id/SearchMoneyPoolByIdApp';
+import {RemoveMoneyPoolApp} from '../../../contexts/money-pool/application/remove/RemoveMoneyPoolApp';
 
 export const MoneyPoolProviders: Array<FactoryProvider> = [
     {
@@ -33,4 +34,20 @@ export const MoneyPoolProviders: Array<FactoryProvider> = [
             MongoDbMoneyPoolRepository,
         ]
     },
+    {
+        provide: RemoveMoneyPoolApp,
+        useFactory: (
+            searchMoneyPoolByIdApp: SearchMoneyPoolByIdApp,
+            repository: IMoneyPoolRepository,
+        ) => {
+            return new RemoveMoneyPoolApp(
+                searchMoneyPoolByIdApp,
+                repository,
+            );
+        },
+        inject: [
+            SearchMoneyPoolByIdApp,
+            MongoDbMoneyPoolRepository,
+        ]
+    }
 ];

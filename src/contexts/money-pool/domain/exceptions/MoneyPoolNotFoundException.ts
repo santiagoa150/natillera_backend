@@ -4,10 +4,13 @@ import {ErrorStatusCodesConstants} from '../../../shared/domain/constants/ErrorS
 import {HttpStatus} from '@nestjs/common';
 
 export class MoneyPoolNotFoundException extends Exception {
-    constructor() {
+    constructor(
+        customMessage?: ErrorMessagesConstants,
+        customStatus?: ErrorStatusCodesConstants,
+    ) {
         super(
-            ErrorMessagesConstants.MONEY_POOL_NOT_FOUND,
-            ErrorStatusCodesConstants.MONEY_POOL_NOT_FOUND,
+            customMessage || ErrorMessagesConstants.MONEY_POOL_NOT_FOUND,
+            customStatus || ErrorStatusCodesConstants.MONEY_POOL_NOT_FOUND,
             HttpStatus.NOT_FOUND,
         );
     }

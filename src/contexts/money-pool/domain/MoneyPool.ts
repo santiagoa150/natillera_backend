@@ -5,7 +5,7 @@ import {MoneyPoolStatus} from './MoneyPoolStatus';
 
 export class MoneyPool implements DomainRoot<MoneyPoolDto> {
 
-    private readonly moneyPoolId: MoneyPoolId;
+    private readonly _moneyPoolId: MoneyPoolId;
     private readonly status: MoneyPoolStatus;
     private readonly name: string;
     private readonly year: number;
@@ -13,18 +13,21 @@ export class MoneyPool implements DomainRoot<MoneyPoolDto> {
     private readonly finishDate: Date;
     private readonly handlingFee: number;
 
-
     constructor(
         moneyPoolId: MoneyPoolId, status: MoneyPoolStatus, name: string, year: number, startDate: Date,
         finishDate: Date, handlingFee: number
     ) {
-        this.moneyPoolId = moneyPoolId;
+        this._moneyPoolId = moneyPoolId;
         this.status = status;
         this.name = name;
         this.year = year;
         this.startDate = startDate;
         this.finishDate = finishDate;
         this.handlingFee = handlingFee;
+    }
+
+    get moneyPoolId(): MoneyPoolId {
+        return this._moneyPoolId;
     }
 
     static fromPrimitives(dto: MoneyPoolDto): MoneyPool {
@@ -44,7 +47,7 @@ export class MoneyPool implements DomainRoot<MoneyPoolDto> {
             finishDate: this.finishDate,
             handlingFee: this.handlingFee,
             startDate: this.startDate,
-            moneyPoolId: this.moneyPoolId.toString(),
+            moneyPoolId: this._moneyPoolId.toString(),
             name: this.name,
             status: this.status.toString(),
             year: this.year,

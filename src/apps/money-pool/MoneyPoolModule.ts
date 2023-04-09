@@ -5,12 +5,14 @@ import {MoneyPoolCommandHandlers} from './config/MoneyPoolCommandHandlers';
 import {MoneyPoolProviders} from './config/MoneyPoolProviders';
 import {SearchMoneyPoolByIdGetController} from './controllers/search/by-id/SearchMoneyPoolByIdGetController';
 import {MoneyPoolQueryHandlers} from './config/MoneyPoolQueryHandlers';
+import {RemoveMoneyPoolDeleteController} from './controllers/remove/RemoveMoneyPoolDeleteController';
 
 @Module({
     imports: [SharedModule],
     controllers: [
         CreateMoneyPoolPostController,
         SearchMoneyPoolByIdGetController,
+        RemoveMoneyPoolDeleteController,
     ],
     providers: [
         ...MoneyPoolCommandHandlers,
