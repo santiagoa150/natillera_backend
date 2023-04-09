@@ -1,5 +1,5 @@
-import {SharedResponsesConstants} from '../../../shared/constants/SharedResponsesConstants';
+import {SuccessfulResponse} from '../../../shared/constants/SharedResponsesConstants';
 
-export class CreateMoneyPoolPostControllerResponse extends SharedResponsesConstants {
+export class CreateMoneyPoolPostControllerResponse extends SuccessfulResponse {
 
 }

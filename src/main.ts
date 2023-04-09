@@ -3,6 +3,8 @@ import {AppModule} from './app.module';
 import {Logger, ValidationPipe} from '@nestjs/common';
 import {DocumentBuilder, SwaggerModule} from '@nestjs/swagger';
 import {HttpExceptionFilter} from './apps/shared/config/HttpExceptionFilter';
+import {SharedControllerConstants} from './apps/shared/constants/SharedControllerConstants';
+import {HeadersConstants} from './contexts/shared/domain/constants/HeadersConstants';
 
 async function bootstrap() {
     const logger: Logger = new Logger('Server');
@@ -23,6 +25,10 @@ async function bootstrap() {
             process.env.CONTACT_URL,
             process.env.CONTACT_EMAIL,
         )
+        .addApiKey({
+            type: 'apiKey',
+            description: SharedControllerConstants.APP_KEY_HEADER_DESCRIPTION,
+        }, HeadersConstants.APP_KEY)
         .build();
     const document = SwaggerModule.createDocument(app, config);
     SwaggerModule.setup(process.env.SWAGGER_PATH, app, document);
