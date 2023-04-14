@@ -9,6 +9,8 @@ export interface IMoneyPoolRepository {
 
     delete(moneyPoolId: MoneyPoolId): Promise<MoneyPool>;
 
+    searchActive(): Promise<MoneyPool>;
+
     searchById(moneyPoolId: MoneyPoolId): Promise<MoneyPool>;
 
     searchPaginated(page: PaginationParam, limit: PaginationParam): Promise<PaginationType<MoneyPool>>;

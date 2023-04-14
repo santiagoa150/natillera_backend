@@ -1,4 +1,5 @@
 export enum MoneyPoolStatusConstants {
-    IN_PROCESS = 'IN_PROCESS',
+    ACTIVE = 'ACTIVE',
+    INACTIVE = 'INACTIVE',
     FINISHED = 'FINISHED',
 }

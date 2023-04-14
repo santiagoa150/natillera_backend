@@ -9,6 +9,7 @@ import {PaginationParam} from '../../../shared/domain/PaginationParam';
 import {PaginationType} from '../../../shared/domain/PaginationType';
 import {MongoDbUtils} from '../../../shared/infrastructure/mongodb/MongoDbUtils';
 import {MongoDbPaginationResponse} from '../../../shared/infrastructure/mongodb/MongoDbTypes';
+import {MoneyPoolStatusConstants} from '../../domain/constants/MoneyPoolStatusConstants';
 
 export class MongoDbMoneyPoolRepository implements IMoneyPoolRepository {
     private readonly logger: Logger = new Logger(MongoDbMoneyPoolRepository.name);
@@ -18,7 +19,7 @@ export class MongoDbMoneyPoolRepository implements IMoneyPoolRepository {
     ) {
     }
 
-    async create(moneyPool: MoneyPoolDto): Promise<MoneyPool> {
+    public async create(moneyPool: MoneyPoolDto): Promise<MoneyPool> {
         this.logger.log(`[${this.create.name}] INIT :: Money Pool To Create: ${JSON.stringify(moneyPool)}`);
         const moneyPoolModel = new this.moneyPoolModel(moneyPool);
         await moneyPoolModel.save();
@@ -27,7 +28,7 @@ export class MongoDbMoneyPoolRepository implements IMoneyPoolRepository {
         return moneyPoolCreated;
     }
 
-    async delete(moneyPoolId: MoneyPoolId): Promise<MoneyPool> {
+    public async delete(moneyPoolId: MoneyPoolId): Promise<MoneyPool> {
         this.logger.log(`[${this.delete.name}] INIT :: moneyPoolId: ${moneyPoolId.toString()}`);
         const moneyPoolDeleted: MoneyPoolDto = await this.moneyPoolModel.findOneAndDelete({moneyPoolId: moneyPoolId.toString()});
         const moneyPoolMapped: MoneyPool = moneyPoolDeleted ? MoneyPool.fromPrimitives(moneyPoolDeleted) : null;
@@ -35,7 +36,15 @@ export class MongoDbMoneyPoolRepository implements IMoneyPoolRepository {
         return moneyPoolMapped;
     }
 
-    async searchById(moneyPoolId: MoneyPoolId): Promise<MoneyPool> {
+    public async searchActive(): Promise<MoneyPool> {
+        this.logger.log(`[${this.searchActive.name}] INIT ::`);
+        const moneyPoolFound: MoneyPoolDto = await this.moneyPoolModel.findOne({status: MoneyPoolStatusConstants.ACTIVE});
+        const moneyPoolMapped: MoneyPool = moneyPoolFound ? MoneyPool.fromPrimitives(moneyPoolFound) : null;
+        this.logger.log(`[${this.searchActive.name}] FINISH :: Id Found: ${moneyPoolFound?.moneyPoolId}`);
+        return moneyPoolMapped;
+    }
+
+    public async searchById(moneyPoolId: MoneyPoolId): Promise<MoneyPool> {
         this.logger.log(`[${this.searchById.name}] INIT :: moneyPoolId: ${moneyPoolId.toString()}`);
         const moneyPoolFound: MoneyPoolDto = await this.moneyPoolModel.findOne({moneyPoolId: moneyPoolId.toString()});
         const moneyPoolMapped: MoneyPool = moneyPoolFound ? MoneyPool.fromPrimitives(moneyPoolFound) : null;
@@ -43,7 +52,7 @@ export class MongoDbMoneyPoolRepository implements IMoneyPoolRepository {
         return moneyPoolMapped;
     }
 
-    async searchPaginated(page: PaginationParam, limit: PaginationParam): Promise<PaginationType<MoneyPool>> {
+    public async searchPaginated(page: PaginationParam, limit: PaginationParam): Promise<PaginationType<MoneyPool>> {
         this.logger.log(`[${this.searchPaginated.name}] INIT :: page: ${page.toNumber()}, limit: ${limit.toNumber()}`);
         const query = MongoDbUtils.buildPaginatedQuery(page, limit);
         const aggregateResponse: MongoDbPaginationResponse<MoneyPoolDto> = await this.moneyPoolModel.aggregate(query);
