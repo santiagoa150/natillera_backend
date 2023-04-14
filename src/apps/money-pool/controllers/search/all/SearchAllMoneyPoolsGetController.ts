@@ -16,7 +16,6 @@ import {
 @Controller(MoneyPoolControllerConstants.PATH)
 @ApiTags(MoneyPoolControllerConstants.SWAGGER_TAG)
 @ApiBasicAuth(HeadersConstants.APP_KEY)
-@ApiExtraModels(SearchAllMoneyPoolsGetControllerResponse, MoneyPoolDto, MetadataType)
 export class SearchAllMoneyPoolsGetController extends SharedController {
 
     protected readonly logger: Logger = new Logger(SearchAllMoneyPoolsGetController.name);

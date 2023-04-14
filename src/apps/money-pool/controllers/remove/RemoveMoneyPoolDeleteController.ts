@@ -4,7 +4,7 @@ import {MoneyPoolControllerConstants} from '../../constants/MoneyPoolControllerC
 import {ApiAcceptedResponse, ApiBasicAuth, ApiTags} from '@nestjs/swagger';
 import {HeadersConstants} from '../../../../contexts/shared/domain/constants/HeadersConstants';
 import {AppAuth} from '../../../../contexts/shared/infrastructure/nestjs/AppAuth';
-import {SuccessfulResponse} from '../../../shared/constants/SharedResponsesConstants';
+import {SuccessfulResponse} from '../../../shared/config/SharedControllerResponses';
 import {RemoveMoneyPoolDeleteControllerRequest} from './RemoveMoneyPoolDeleteControllerRequest';
 import {RemoveMoneyPoolCommand} from '../../../../contexts/money-pool/application/remove/RemoveMoneyPoolCommand';
 import {MoneyPoolDto} from '../../../../contexts/money-pool/domain/MoneyPoolDto';

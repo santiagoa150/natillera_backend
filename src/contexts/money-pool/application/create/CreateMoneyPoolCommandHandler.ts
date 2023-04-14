@@ -5,7 +5,7 @@ import {Logger} from '@nestjs/common';
 import {CreateMoneyPoolApp} from './CreateMoneyPoolApp';
 
 @CommandHandler(CreateMoneyPoolCommand)
-export class CreateMoneyPoolCommandHandler implements ICommandHandler<CreateMoneyPoolCommand> {
+export class CreateMoneyPoolCommandHandler implements ICommandHandler<CreateMoneyPoolCommand, MoneyPoolDto> {
 
     private readonly logger: Logger = new Logger(CreateMoneyPoolCommandHandler.name);
 

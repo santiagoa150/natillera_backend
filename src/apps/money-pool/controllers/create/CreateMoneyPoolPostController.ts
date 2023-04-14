@@ -6,7 +6,7 @@ import {CreateMoneyPoolPostControllerRequest} from './CreateMoneyPoolPostControl
 import {CreateMoneyPoolCommand} from '../../../../contexts/money-pool/application/create/CreateMoneyPoolCommand';
 import {AppAuth} from '../../../../contexts/shared/infrastructure/nestjs/AppAuth';
 import {HeadersConstants} from '../../../../contexts/shared/domain/constants/HeadersConstants';
-import {SuccessfulResponse} from '../../../shared/constants/SharedResponsesConstants';
+import {SuccessfulResponse} from '../../../shared/config/SharedControllerResponses';
 
 @Controller(MoneyPoolControllerConstants.PATH)
 @ApiTags(MoneyPoolControllerConstants.SWAGGER_TAG)

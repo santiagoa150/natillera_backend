@@ -15,7 +15,7 @@ export abstract class SharedController {
         return this.commandBus.execute(command);
     }
 
-    protected async query<T>(command): Promise<T> {
-        return this.queryBus.execute(command);
+    protected async query<T>(query): Promise<T> {
+        return this.queryBus.execute(query);
     }
 }

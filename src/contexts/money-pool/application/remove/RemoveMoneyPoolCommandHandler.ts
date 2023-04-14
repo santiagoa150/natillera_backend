@@ -6,7 +6,7 @@ import {RemoveMoneyPoolApp} from './RemoveMoneyPoolApp';
 import {MoneyPoolId} from '../../domain/MoneyPoolId';
 
 @CommandHandler(RemoveMoneyPoolCommand)
-export class RemoveMoneyPoolCommandHandler implements ICommandHandler<RemoveMoneyPoolCommand> {
+export class RemoveMoneyPoolCommandHandler implements ICommandHandler<RemoveMoneyPoolCommand, MoneyPoolDto> {
 
     private readonly logger: Logger = new Logger(RemoveMoneyPoolCommandHandler.name);
 

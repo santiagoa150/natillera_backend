@@ -8,7 +8,7 @@ import {PaginationParam} from '../../../../shared/domain/PaginationParam';
 import {MoneyPool} from '../../../domain/MoneyPool';
 
 @QueryHandler(SearchAllMoneyPoolsQuery)
-export class SearchAllMoneyPoolsQueryHandler implements IQueryHandler<SearchAllMoneyPoolsQuery> {
+export class SearchAllMoneyPoolsQueryHandler implements IQueryHandler<SearchAllMoneyPoolsQuery, PaginationType<MoneyPoolDto>> {
 
     private readonly logger = new Logger(SearchAllMoneyPoolsQueryHandler.name);
 

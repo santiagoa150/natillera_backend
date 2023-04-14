@@ -6,7 +6,7 @@ import {SearchMoneyPoolByIdApp} from './SearchMoneyPoolByIdApp';
 import {MoneyPoolId} from '../../../domain/MoneyPoolId';
 
 @QueryHandler(SearchMoneyPoolByIdQuery)
-export class SearchMoneyPoolByIdQueryHandler implements IQueryHandler<SearchMoneyPoolByIdQuery> {
+export class SearchMoneyPoolByIdQueryHandler implements IQueryHandler<SearchMoneyPoolByIdQuery, MoneyPoolDto> {
 
     private readonly logger: Logger = new Logger(SearchMoneyPoolByIdQueryHandler.name);
 
