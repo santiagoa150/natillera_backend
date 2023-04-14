@@ -1,3 +1,4 @@
 export enum MongoDbModelNameConstants {
-    MONEY_POOL = 'moneypool'
+    MONEY_POOL = 'moneypool',
+    CUSTOMER = 'customer',
 }
