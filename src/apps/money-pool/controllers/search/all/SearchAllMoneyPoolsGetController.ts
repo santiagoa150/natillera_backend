@@ -1,11 +1,10 @@
 import {SharedController} from '../../../../shared/config/SharedController';
 import {Controller, Get, Logger, Query} from '@nestjs/common';
 import {MoneyPoolControllerConstants} from '../../../constants/MoneyPoolControllerConstants';
-import {ApiAcceptedResponse, ApiBasicAuth, ApiExtraModels, ApiTags} from '@nestjs/swagger';
+import {ApiAcceptedResponse, ApiBasicAuth, ApiTags} from '@nestjs/swagger';
 import {HeadersConstants} from '../../../../../contexts/shared/domain/constants/HeadersConstants';
 import {AppAuth} from '../../../../../contexts/shared/infrastructure/nestjs/AppAuth';
 import {SearchAllMoneyPoolsGetControllerResponse} from './SearchAllMoneyPoolsGetControllerResponse';
-import {MetadataType} from '../../../../../contexts/shared/domain/MetadataType';
 import {MoneyPoolDto} from '../../../../../contexts/money-pool/domain/MoneyPoolDto';
 import {SearchAllMoneyPoolsGetControllerRequest} from './SearchAllMoneyPoolsGetControllerRequest';
 import {PaginationType} from '../../../../../contexts/shared/domain/PaginationType';

@@ -40,4 +40,4 @@ async function bootstrap() {
 bootstrap();
 
 /*TODO:
-*  -Agregar filtros y sorts en las busquedas paginadas.*/
+*  -Agregar filtros en las busquedas paginadas.*/

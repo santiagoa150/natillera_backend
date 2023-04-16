@@ -5,12 +5,14 @@ import {CustomerQueryHandlers} from './config/CustomerQueryHandlers';
 import {CustomerProviders} from './config/CustomerProviders';
 import {CreateOneCustomerPostController} from './controllers/create/one/CreateOneCustomerPostController';
 import {SearchCustomerByIdGetController} from './controllers/search/by-id/SearchCustomerByIdGetController';
+import {SearchAllCustomersGetController} from './controllers/search/all/SearchAllCustomersGetController';
 
 @Module({
     imports: [SharedModule],
     controllers: [
         CreateOneCustomerPostController,
         SearchCustomerByIdGetController,
+        SearchAllCustomersGetController,
     ],
     providers: [
         ...CustomerCommandHandlers,
