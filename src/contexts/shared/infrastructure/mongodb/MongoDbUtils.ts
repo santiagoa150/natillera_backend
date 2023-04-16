@@ -18,6 +18,7 @@ export class MongoDbUtils {
         metadata.push({$count: 'total'});
         metadata.push({$addFields: {page}});
         metadata.push({$addFields: {totalPages: {$ceil: {$divide: ['$total', limit]}}}});
+        aggregate.push({$sort: {createdAt: -1}});
         aggregate.push({$facet: {data, metadata}});
         aggregate.push({$unwind: {path: '$metadata'}});
         return aggregate;
