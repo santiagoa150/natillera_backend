@@ -13,9 +13,9 @@ import {SearchActiveMoneyPoolGetController} from './controllers/search/active/Se
     imports: [SharedModule],
     controllers: [
         CreateMoneyPoolPostController,
-        SearchActiveMoneyPoolGetController,
-        SearchAllMoneyPoolsGetController,
         SearchMoneyPoolByIdGetController,
+        SearchAllMoneyPoolsGetController,
+        SearchActiveMoneyPoolGetController,
         RemoveMoneyPoolDeleteController,
     ],
     providers: [

@@ -1,4 +1,4 @@
-import {SuccessfulResponse} from '../../shared/config/./SharedControllerResponses';
+import {SuccessfulResponse} from '../../shared/config/SharedControllerResponses';
 import {ApiProperty} from '@nestjs/swagger';
 import {MoneyPoolDto} from '../../../contexts/money-pool/domain/MoneyPoolDto';
 

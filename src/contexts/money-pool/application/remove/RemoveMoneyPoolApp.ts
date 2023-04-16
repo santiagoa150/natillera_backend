@@ -20,9 +20,12 @@ export class RemoveMoneyPoolApp {
     async exec(moneyPoolId: MoneyPoolId, throwExceptionIfCantDelete?: boolean): Promise<MoneyPool> {
         this.logger.log(`[${this.exec.name}] INIT :: moneyPoolId: ${moneyPoolId.toString()}`);
         const moneyPoolFound: MoneyPool = await this.searchMoneyPoolByIdApp.exec(moneyPoolId, true);
-        const moneyPoolDeleted = await this.repository.delete(moneyPoolFound.moneyPoolId);
+        const moneyPoolDeleted: MoneyPool = await this.repository.delete(moneyPoolFound.moneyPoolId);
         if (throwExceptionIfCantDelete && !moneyPoolDeleted) {
-            throw new MoneyPoolNotFoundException(ErrorMessagesConstants.MONEY_POOL_NOT_DELETED, ErrorStatusCodesConstants.MONEY_POOL_NOT_DELETED);
+            throw new MoneyPoolNotFoundException(
+                ErrorMessagesConstants.MONEY_POOL_NOT_DELETED,
+                ErrorStatusCodesConstants.MONEY_POOL_NOT_DELETED,
+            );
         }
         this.logger.log(`[${this.exec.name}] FINISH ::`);
         return moneyPoolDeleted;

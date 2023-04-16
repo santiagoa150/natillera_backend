@@ -15,7 +15,7 @@ import {MoneyPoolDto} from '../../../../contexts/money-pool/domain/MoneyPoolDto'
 export class RemoveMoneyPoolDeleteController extends SharedController {
     protected readonly logger: Logger = new Logger(RemoveMoneyPoolDeleteController.name);
 
-    @Delete()
+    @Delete(MoneyPoolControllerConstants.REMOVE_MONEY_POOL_BY_ID)
     @AppAuth()
     @ApiAcceptedResponse({type: SuccessfulResponse})
     async exec(

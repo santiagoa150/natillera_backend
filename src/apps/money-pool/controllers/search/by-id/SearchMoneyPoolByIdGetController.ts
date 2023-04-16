@@ -18,7 +18,7 @@ export class SearchMoneyPoolByIdGetController extends SharedController {
 
     protected readonly logger: Logger = new Logger(SearchMoneyPoolByIdGetController.name);
 
-    @Get()
+    @Get(MoneyPoolControllerConstants.SEARCH_MONEY_POOL_BY_ID)
     @AppAuth()
     @ApiAcceptedResponse({type: SearchOneMoneyPoolResponse})
     async exec(
